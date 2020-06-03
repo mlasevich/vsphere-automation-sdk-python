@@ -1,0 +1,20 @@
+#!/bin/bash
+
+MYDIR="$( cd "$(dirname "${0}")" && pwd -P)"
+WORK_DIR="${MYDIR}/src"
+
+rm -rf "${WORK_DIR}"
+mkdir -p "${WORK_DIR}"
+
+find "${MYDIR}" -name \*.whl | while read wheel
+do
+#  echo "wheel=${wheel}"
+  pkg="$(basename "$(dirname "${wheel}")")"
+  echo "pkg=${pkg}"
+  pkgdir="${WORK_DIR}/${pkg}"
+
+#  test -d "${pkgdir}" && echo "Package dir for ${pkg} already exists, removing it..." && rm -rf "${pkgdir}"
+#  mkdir -p "${WORK_DIR}/${pkg}"
+
+  (cd "${WORK_DIR}" && unzip -oq "${wheel}")
+done
