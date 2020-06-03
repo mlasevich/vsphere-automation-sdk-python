@@ -10,3 +10,14 @@ install:
 script:
   - pycodestyle samples tests
   - pytest
+
+
+deploy:
+  provider: pypi
+  user: '__token__'
+  password:
+    secure: AoUrIa5xlOgsTs21ggdf9qxQUInCQY0UBsaYf7JmQhP2JLPhGDhN2TQJLtRgmSLum78h/+zxl8wF4GEeRnIur9h1KdozwjhGP+5/a6dYcSwLmoplrwWgj+ItSuvb3oSHSFhpQo9WHiy0Cokby8paZ29jOfyOkfEV1P1Ng1eok2NgoAiKHZCpALafcyJkTou5Pkjstb02gjs3FYS2Q72aQsOcBFMGJbyjKsURnYvG41lLNUuRm7g3tVLaDb1Ub1ljo2yCiLayRs30ES0NxzQ0rLb19Q0TT50jqeDL4cXwIr5tdvJVVEGdN9hWZzZj++sbzjhbWEBJHVMYIDyD7SIKUiIeGevOC+4u2OjktYi2VSTqvd3ffyEJk547pXllZYMS+vrLDUlMYzEY83S8MgZ5zp2oS9P2Jq5vfcglRbxDJL3kzRN9ef8UdU2VvoG3HnQnhzXpe0H8OI2hhrP+vkmSzl91YBAhBCtFM4CCceVhNKAfrOo/OZYWyI0cKSYNHPwJZKAh4LYFBxWKlLfwXUcWtj5KFMvQkbxo0ltpIuPCtAH3Yx+0sQSUYHLi3/TIhbkgm3rr0SxziCWtX8NNfvdMsqSiQUxOdrA+ETOFs03mSaGVQzQOgyyUbz9igM4m6TPT/PW8TGR1dr1b7j0GoE67XPYlFj6pODK9J9VIOcqgxkc=
+  skip_existing: true
+  distributions: "sdist bdist_wheel"
+  on:
+    tags: true
